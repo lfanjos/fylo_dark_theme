@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline: none;
 }
 
 body {
@@ -88,6 +89,12 @@ p {
   cursor: pointer;
 }
 
+.default-button:hover,
+.default-button:active,
+.default-button:focus {
+  background-color: hsl(176, 57%, 72%);
+}
+
 .services-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -141,21 +148,35 @@ p {
   line-height: 1.5;
 }
 
-.banner-content-text a {
+.default-link {
   font-size: 1.4rem;
   width: fit-content;
   text-decoration: none;
   margin: 1rem 0;
   vertical-align: middle;
   font-family: "Raleway", sans-serif;
-  color: white;
+  color: hsl(176, 68%, 64%);
   padding-bottom: 0.5rem;
   border-bottom: 1px solid hsl(176, 68%, 64%);
+  transition: border-color 0.3s ease-in;
+}
+
+.default-link:hover,
+.default-link:focus {
+  border-color: white;
+  color: white;
 }
 
 .banner-content-text img {
   padding-top: 0.3rem;
   max-height: 1.6rem;
+  transition: filter 0.3s ease-in;
+}
+
+.default-link:hover img,
+.default-link:focus img {
+  filter: invert(95%) sepia(68%) saturate(24%) hue-rotate(248deg)
+    brightness(105%) contrast(102%);
 }
 
 .testimonials {
@@ -168,7 +189,7 @@ p {
   background-color: #1c2431;
   margin: 3.5rem 2rem;
   border-radius: 0.3px;
-  box-shadow: 0px 0px 14px 1px hsl(218, 16%, 20%);
+  box-shadow: 0px 0px 14px 1px hsla(220, 18%, 10%, 0.692);
   padding: 3rem;
 }
 
@@ -178,11 +199,287 @@ p {
 
 .testimonial-card-person {
   display: flex;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .testimonial-card-person-img img {
   height: 4rem;
   border-radius: 50%;
   margin-right: 0.5rem;
+}
+
+.newsletter {
+  width: 70%;
+  padding: 3rem 6rem;
+  margin: 9rem auto 3rem;
+  background-color: hsl(221, 18%, 18%);
+  border-radius: 5px;
+  text-align: center;
+}
+
+.newsletter h2 {
+  font-size: 2.8rem;
+}
+
+.newsletter p {
+  padding: 0 2rem;
+}
+
+.newsletter button {
+  margin: 0;
+  margin-left: 2rem;
+  padding: 1.5rem 3rem;
+  min-width: 4.6rem;
+}
+
+form {
+  display: flex;
+  height: 4.6rem;
+  margin-top: 3rem;
+  position: relative;
+}
+
+#email {
+  border-radius: 5rem;
+  border: none;
+  padding-left: 3rem;
+  width: 70%;
+}
+
+#error-email {
+  position: absolute;
+  bottom: -2rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: hsl(0, 100%, 63%);
+}
+
+footer {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  grid-template-rows: 1.5fr 1fr 1fr 2rem;
+  grid-template-areas:
+    "logo . . ."
+    "logo contact menu social"
+    ". . menu ."
+    "end end end end";
+}
+
+.footer-logo {
+  padding-top: 3rem;
+  grid-area: logo;
+}
+
+.footer-logo p {
+  display: inline-block;
+  width: 80%;
+  text-align: left;
+  margin-left: 2rem;
+}
+
+#logo-footer {
+  display: block;
+  margin-bottom: 2rem;
+}
+
+#location {
+  padding-bottom: 2rem;
+}
+
+.footer-contact {
+  grid-area: contact;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.footer-contact div:nth-child(1) {
+  margin-bottom: 1rem;
+}
+
+.footer-contact p {
+  display: inline-block;
+  margin-left: 2rem;
+}
+
+.footer-contact img {
+  height: max-content;
+  vertical-align: top;
+}
+
+footer .nav-bar {
+  grid-area: menu;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  width: 18rem;
+  height: 12rem;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.menu-item {
+  height: 3rem;
+  width: 8rem;
+}
+
+div.menu-item:nth-child(n):nth-child(-n + 4) {
+  margin-right: 4rem;
+}
+
+.social-icons {
+  margin-left: 5rem;
+  grid-area: social;
+}
+
+.social-icons i {
+  font-size: 2.8rem;
+  letter-spacing: 2rem;
+}
+
+.end {
+  grid-area: end;
+}
+
+@media (max-width: 829px) {
+  * {
+    max-width: 100%;
+  }
+  footer {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "logo"
+      "contact "
+      "menu "
+      "social"
+      "end ";
+  }
+  body {
+    padding: 2rem;
+    background-image: url(/images/bg-curvy-mobile.svg);
+  }
+  .banner-top p br {
+    display: none;
+  }
+  #logo {
+    height: 3rem;
+  }
+
+  .default-button {
+    padding: 1.5rem 8rem;
+  }
+
+  .nav-bar {
+    width: 50%;
+    padding-top: 1.5rem;
+  }
+
+  .banner-top {
+    margin-top: 5rem;
+  }
+
+  .banner-top p {
+    padding: 2rem;
+  }
+
+  .banner-top h1 {
+    font-size: 3rem;
+    margin-bottom: 0;
+  }
+
+  .services-grid {
+    margin: 10rem auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "anywhere"
+      "security"
+      "collaboration"
+      "files";
+  }
+
+  .banner-content {
+    flex-direction: column;
+  }
+  .banner-content-text h2 {
+    padding: 0;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .banner-content-img {
+    margin: auto;
+  }
+
+  .newsletter {
+    width: 100%;
+    padding: 3rem 2rem;
+    margin: 9rem auto 3rem;
+    background-color: hsl(221, 18%, 18%);
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    margin-top: 3rem;
+    position: relative;
+  }
+
+  form .default-button {
+    margin-left: 0;
+  }
+
+  .newsletter {
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.342);
+  }
+
+  .newsletter h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  #email {
+    padding: 1.5rem 3rem;
+    margin-bottom: 2.5rem;
+    padding-left: 3rem;
+    width: 100%;
+  }
+
+  .testimonials {
+    flex-direction: column;
+  }
+
+  #location {
+    padding-bottom: 5rem;
+  }
+
+  .footer-logo {
+    margin-bottom: 2rem;
+  }
+
+  .footer-grid .nav-bar {
+    width: 100%;
+    margin: 3rem auto;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    width: 24rem;
+    height: 12rem;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: auto;
+  }
+
+  .social-icons {
+    text-align: center;
+    margin: 0 auto 3rem;
+  }
 }

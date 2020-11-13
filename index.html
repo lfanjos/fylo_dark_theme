@@ -20,6 +20,10 @@
       sizes="32x32"
       href="./images/favicon-32x32.png"
     />
+    <script
+      src="https://kit.fontawesome.com/864872c2f6.js"
+      crossorigin="anonymous"
+    ></script>
 
     <title>
       Frontend Mentor | Fylo landing page with dark theme and features grid
@@ -99,7 +103,7 @@
             Securely share files and folders with friends, family and colleagues
             for live collaboration. No email attachments required.
           </p>
-          <a href="#">
+          <a href="#" class="default-link">
             See how Fylo works <img src="/images/icon-arrow.svg" alt=""
           /></a>
         </div>
@@ -161,45 +165,81 @@
           extremely generous. If you have any questions, our support team would
           be happy to help you.
         </p>
-        <button class="default-button">Get Started For Free</button>
+        <form novalidate name="myForm">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="email@example.com"
+            required
+          />
+          <p id="error-email"></p>
+          <button class="default-button" onclick="return validateForm()">
+            Get Started For Free
+          </button>
+        </form>
       </div>
     </main>
     <footer class="footer-grid">
       <div class="footer-logo">
-        <img src="/images/logo.svg" alt="logo" />
-        <img src="/images/icon-location.svg" alt="location" />
+        <img src="/images/logo.svg" alt="logo" id="logo-footer" />
+        <img src="/images/icon-location.svg" alt="location" id="location" />
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua
         </p>
       </div>
       <div class="footer-contact">
-        <img src="/images/icon-phone.svg" alt="phone" />
-        <p>+1-543-123-4567</p>
-        <img src="/images/icon-email.svg" alt="" />
-        <p>example@fylo.com</p>
+        <div class="phone">
+          <img src="/images/icon-phone.svg" alt="phone" />
+          <p>+1-543-123-4567</p>
+        </div>
+        <div class="email">
+          <img src="/images/icon-email.svg" alt="" />
+          <p>example@fylo.com</p>
+        </div>
       </div>
       <nav class="nav-bar">
-        <ul>
-          <li><a href="#"> About Us</a></li>
-          <li><a href="#"> Jobs</a></li>
-          <li><a href="#"> Press</a></li>
-          <li><a href="#"> Blog</a></li>
-          <li><a href="#"> Contact Us</a></li>
-          <li><a href="#"> Terms Privacy</a></li>
-        </ul>
+        <div class="menu">
+          <div class="menu-item"><a href="#"> About Us</a></div>
+          <div class="menu-item"><a href="#"> Jobs</a></div>
+          <div class="menu-item"><a href="#"> Press</a></div>
+          <div class="menu-item"><a href="#"> Blog</a></div>
+          <div class="menu-item"><a href="#"> Contact Us</a></div>
+          <div class="menu-item"><a href="#"> Terms</a></div>
+          <div class="menu-item"><a href="#"> Privacy</a></div>
+        </div>
       </nav>
       <div class="social-icons">
-        <img src="" alt="" />
-        <img src="" alt="" />
-        <img src="" alt="" />
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-instagram"></i>
       </div>
-      <p>
+      <p class="end">
         Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        <a
+          href="https://www.frontendmentor.io?ref=challenge"
+          class="default-link"
+          target="_blank"
           >Frontend Mentor</a
-        >. Coded by <a href="#">Your Name Here</a>.
+        >. Coded by
+        <a href="https://github.com/lfanjos" class="default-link">Lfanjos</a>.
       </p>
     </footer>
+
+    <script>
+      const email = document.getElementById("email");
+
+      function validateForm() {
+        if (!email.checkValidity()) {
+          document.getElementById("error-email").innerHTML =
+            "Please enter a valid email address";
+        } else {
+          document.getElementById("error-email").innerHTML = "";
+          document.getElementById("myForm").submit();
+        }
+        return false;
+      }
+    </script>
   </body>
 </html>
